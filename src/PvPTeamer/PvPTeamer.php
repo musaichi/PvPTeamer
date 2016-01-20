@@ -8,6 +8,7 @@ use pocketmine\event\Listener;
 use pocketmine\event\EntityDamageEvent;
 use pocketmine\event\EntityDamageByEntityEvent;
 use pocketmine\event\PlayerJoinEvent;
+use pocketmine\event\PlayerPreLoginEvent;
 use pocketmine\event\PlayerQuitEvent;
 
 use pocketmine\Player;
@@ -36,4 +37,9 @@ function onDisable(){
  $this->c->set("A", 0);
  $this->c->set("B", 0);
 }
+
+function onPreLogin(PlayerPreLoginEvent $e){
+ $p = $e->getPlayer();
+ $n = $p->getName();
+ }
 }
