@@ -31,6 +31,8 @@ function onEnable(){
 "B" => 0,
 ));
   $this->c->save();
+  $this->a = $this->c->get("A");
+  $this->b = $this->c->get("B");
  }
 
 function onDisable(){
@@ -42,4 +44,10 @@ function onPreLogin(PlayerPreLoginEvent $e){
  $p = $e->getPlayer();
  $n = $p->getName();
  }
+
+function onJoin(PlayerJoinEvent $e){
+}
+
+function onEntityDamage(EntityDamageEvent $e){
+}
 }
