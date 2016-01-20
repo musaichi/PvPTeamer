@@ -24,20 +24,12 @@ function onLoad(){
 
 function onEnable(){
  $this->getServer()->getPluginManager()->registerEvents($this, $this);
- if(!file_exists($this->getDataFolder()))
-  @mkdir($this->getDataFolder(), 0755, true);
-  $this->c = new Config($this->getDataFolder()."system.yml",Config::YAML,array(
-"A" => 0,
-"B" => 0,
-));
-  $this->c->save();
-  $this->a = $this->c->get("A");
-  $this->b = $this->c->get("B");
+ $this->a = 0;
+ $this->b = 0;
  }
 
 function onDisable(){
- $this->c->set("A", 0);
- $this->c->set("B", 0);
+$this->getLogger()->info("PvPTeamer has disabled.See you:D");
 }
 
 function onPreLogin(PlayerPreLoginEvent $e){
@@ -49,18 +41,23 @@ function onJoin(PlayerJoinEvent $e){
  $p = $p->getPlayer();
  if($p->loggedIn()){
   $n = $p->getName();
-  if($this->a < $this->b){
+  $a = $this->a;
+  $b = $this->b;
+  if($a < $b){
    $p->sendMessage("[PvPTeamer]You are A team!");
    $p->setNameTag("[A]".$n."");
    $p->setDisplayName("[A]".$n."");
- }elseif($this->a > $this->b){
+   $this->a = $a + 1;
+ }elseif($a > $b){
    $p->sendMessage("[PvPTeamer]You are B team!");
    $p->setNameTag("[B]".$n."");
    $p->setDisplayName("[B]".$n."");
+   $this->b = $b + 1;
  }else{
    $p->sendMessage("[PvPTeamer]You are A team!");
    $p->setNameTag("[A]".$n."");
    $p->setDisplayName("[A]".$n."");
+   $this->a = $a + 1;
   }
  }
 }
