@@ -46,6 +46,23 @@ function onPreLogin(PlayerPreLoginEvent $e){
  }
 
 function onJoin(PlayerJoinEvent $e){
+ $p = $p->getPlayer();
+ if($p->loggedIn()){
+  $n = $p->getName();
+  if($this->a < $this->b){
+   $p->sendMessage("[PvPTeamer]You are A team!");
+   $p->setNameTag("[A]".$n."");
+   $p->setDisplayName("[A]".$n."");
+ }elseif($this->a > $this->b){
+   $p->sendMessage("[PvPTeamer]You are B team!");
+   $p->setNameTag("[B]".$n."");
+   $p->setDisplayName("[B]".$n."");
+ }else{
+   $p->sendMessage("[PvPTeamer]You are A team!");
+   $p->setNameTag("[A]".$n."");
+   $p->setDisplayName("[A]".$n."");
+  }
+ }
 }
 
 function onEntityDamage(EntityDamageEvent $e){
