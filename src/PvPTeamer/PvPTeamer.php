@@ -39,7 +39,7 @@ function onPreLogin(PlayerPreLoginEvent $e){
 
 function onJoin(PlayerJoinEvent $e){
  $p = $p->getPlayer();
- if($p->loggedIn()){
+ if($e->loggedIn()){
   $n = $p->getName();
   $a = $this->a;
   $b = $this->b;
@@ -60,6 +60,10 @@ function onJoin(PlayerJoinEvent $e){
    $this->a = $a + 1;
   }
  }
+}
+
+function onQuit(PlayerQuitEvent $e){
+ $p = $e->getPlayer();
 }
 
 function onEntityDamage(EntityDamageEvent $e){
