@@ -32,11 +32,6 @@ function onDisable(){
 $this->getLogger()->info("PvPTeamer has disabled.See you:D");
 }
 
-function onPreLogin(PlayerPreLoginEvent $e){
- $p = $e->getPlayer();
- $n = $p->getName();
- }
-
 function onJoin(PlayerJoinEvent $e){
  $p = $p->getPlayer();
  if($e->loggedIn()){
