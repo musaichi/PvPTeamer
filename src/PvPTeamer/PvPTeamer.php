@@ -29,12 +29,12 @@ function onEnable(){
  }
 
 function onDisable(){
-$this->getLogger()->info("PvPTeamer has disabled.See you:D");
+$this->getLogger()->info("PvPTeamer has been disabled.See you:D");
 }
 
 function onJoin(PlayerJoinEvent $e){
  $p = $p->getPlayer();
- if($e->loggedIn()){
+ if($p->loggedIn()){
   $n = $p->getName();
   $a = $this->a;
   $b = $this->b;
@@ -59,6 +59,18 @@ function onJoin(PlayerJoinEvent $e){
 
 function onQuit(PlayerQuitEvent $e){
  $p = $e->getPlayer();
+ if($p->LoggedIn){
+  $t = $p->getDisplayName();
+  $a = $this->a;
+  $b = $this->b;
+  $aa = explode("]",$t);
+  $bb = str_replace("[","",$aa[0]);
+  if($b == "A"){
+   $this->a = $a - 1;
+  }else{
+   $this->b = $b - 1;
+  }
+ }
 }
 
 function onEntityDamage(EntityDamageEvent $e){
