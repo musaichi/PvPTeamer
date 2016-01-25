@@ -79,12 +79,17 @@ function onEntityDamage(EntityDamageEvent $event){
   if($event->getDamager() instanceof Player){
    $p = $event->getDamager()->getPlayer();
    $e = $event->getEntity();
-   $et = $e->getName();
-   $pt = $p->getName();
+   $et = $e->getDisplayName();
+   $pt = $p->getDisplayName();
    $pa = explode("]",$pt);
    $pb = str_replace("[","",$pa[0]);
    $ea = explode("]",$et);
    $eb = str_replace("[","",$ea[0]);
+   if($pb == "A" && $eb == "A"){
+    $event->setCancelled(true);
+   }elseif($pb == "B" && $eb == "B"){
+    $event->setCancelled(true);
+   }
   }
  }
 }
