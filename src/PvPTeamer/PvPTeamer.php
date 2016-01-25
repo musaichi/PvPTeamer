@@ -73,6 +73,19 @@ function onQuit(PlayerQuitEvent $e){
  }
 }
 
-function onEntityDamage(EntityDamageEvent $e){
+function onEntityDamage(EntityDamageEvent $event){
+ $entity = $event->getEntity();
+ if($entity instanceof Player && $event->getCause() == 1){
+  if($event->getDamager() instanceof Player){
+   $p = $event->getDamager()->getPlayer();
+   $e = $event->getEntity();
+   $et = $e->getName();
+   $pt = $p->getName();
+   $pa = explode("]",$pt);
+   $pb = str_replace("[","",$pa[0]);
+   $ea = explode("]",$et);
+   $eb = str_replace("[","",$ea[0]);
+  }
+ }
 }
 }
