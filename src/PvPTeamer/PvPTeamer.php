@@ -65,7 +65,7 @@ function onQuit(PlayerQuitEvent $e){
   $b = $this->b;
   $aa = explode("]",$t);
   $bb = str_replace("[","",$aa[0]);
-  if($b == "A"){
+  if($bb == "A"){
    $this->a = $a - 1;
   }else{
    $this->b = $b - 1;
