@@ -8,13 +8,9 @@ use pocketmine\event\Listener;
 use pocketmine\event\EntityDamageEvent;
 use pocketmine\event\EntityDamageByEntityEvent;
 use pocketmine\event\PlayerJoinEvent;
-use pocketmine\event\PlayerPreLoginEvent;
 use pocketmine\event\PlayerQuitEvent;
 
-use pocketmine\Player;
 use pocketmine\Server;
-use pocketmine\utils\Config;
-use pocketmine\Entity\entity;
 
 class PvPTeamer extends PluginBase implements Listener{
 
