@@ -1,6 +1,7 @@
-name:PvPTeamer
-main:PvPTeamer\PvPTeamer
-version:114.514
-API:[1.0.0]
+name: PvPTeamer
+version: 1.0.0
+api: [1.0.0]
+load: POSTWORLD
+main: PvPTeamer\PvPTeamer
 author:musaichi1
-description:Pocketmine PvP teaming plugin.
+website: http://twitter.com/musaichi1
