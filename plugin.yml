@@ -1,6 +1,6 @@
 name: PvPTeamer
 version: 1.0.0
-api: [1.0.0]
+api: [3.0.0]
 load: POSTWORLD
 main: PvPTeamer\PvPTeamer
 author:musaichi1
